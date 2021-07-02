@@ -136,39 +136,39 @@ class OpenCameraActivity : AppCompatActivity() {
     /***
      * When starting the app for the first time shows the user information abot the app
      */
-    private fun startGreetingActivity() {
-
-        var previouslyStarted =
-            prefs!!.getBoolean("first_time", false)
-
-        val intent = Intent(application, GreetingActivity::class.java)
-
-
-        if (!previouslyStarted) {
-            val edit = prefs!!.edit()
-            edit.putBoolean("first_time", java.lang.Boolean.TRUE)
-
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-
-            startActivity(intent)
-
-            edit.commit()
-        }
-    }
+//    private fun startGreetingActivity() {
+//
+//        var previouslyStarted =
+//            prefs!!.getBoolean("first_time", false)
+//
+//        val intent = Intent(application, GreetingActivity::class.java)
+//
+//
+//        if (!previouslyStarted) {
+//            val edit = prefs!!.edit()
+//            edit.putBoolean("first_time", java.lang.Boolean.TRUE)
+//
+//            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+//
+//            startActivity(intent)
+//
+//            edit.commit()
+//        }
+//    }
 
     /***
      * Initialzie the help button
      */
-    private fun setupHelpButton() {
-        val help: SquareImageButton = findViewById(R.id.help_btn)
-        help.setOnClickListener { view ->
-
-            val intent = Intent(this, HelpActivity::class.java)
-
-            startActivity(intent)
-
-        }
-    }
+//    private fun setupHelpButton() {
+//        val help: SquareImageButton = findViewById(R.id.help_btn)
+//        help.setOnClickListener { view ->
+//
+//            val intent = Intent(this, HelpActivity::class.java)
+//
+//            startActivity(intent)
+//
+//        }
+//    }
 
 
     // lifecycle methods
@@ -178,7 +178,7 @@ class OpenCameraActivity : AppCompatActivity() {
 
         setContentView(R.layout.open_camera)
         setupSharedPrefs()
-        startGreetingActivity()
+//        startGreetingActivity()
 
         if (!checkIsSupportedDeviceOrFinish(this)) {
             return
@@ -195,9 +195,9 @@ class OpenCameraActivity : AppCompatActivity() {
         setupRulerButton()
         setupClearButton()
         setupSearchButton()
-        setupCameraButton()
-        setupUpInfoButton()
-        setupHelpButton()
+//        setupCameraButton()
+//        setupUpInfoButton()
+//        setupHelpButton()
         setupSeekBar()
     }
 
@@ -222,27 +222,27 @@ class OpenCameraActivity : AppCompatActivity() {
     /***
      * Inits the info button
      */
-    private fun setupUpInfoButton() {
-        val infoBtn = findViewById<InfoFAB>(R.id.fab_info)
-
-        findViewById<InfoFAB>(R.id.fab_info).setOnClickListener() {
-
-
-            when (infoBtn.getStage()) {
-                InfoStage.RED -> {
-                    messageInfoButtonRedStage()
-                }
-                InfoStage.YELLOW -> {
-                    messageInfoButtonYellowStage()
-                }
-                InfoStage.GREEN -> {
-                    messageInfoButtonGreenStage()
-                }
-            }
-
-        }
-
-    }
+//    private fun setupUpInfoButton() {
+//        val infoBtn = findViewById<InfoFAB>(R.id.fab_info)
+//
+//        findViewById<InfoFAB>(R.id.fab_info).setOnClickListener() {
+//
+//
+//            when (infoBtn.getStage()) {
+//                InfoStage.RED -> {
+//                    messageInfoButtonRedStage()
+//                }
+//                InfoStage.YELLOW -> {
+//                    messageInfoButtonYellowStage()
+//                }
+//                InfoStage.GREEN -> {
+//                    messageInfoButtonGreenStage()
+//                }
+//            }
+//
+//        }
+//
+//    }
 
     /***
      * Init's the setup box
@@ -339,36 +339,36 @@ class OpenCameraActivity : AppCompatActivity() {
     /**
      * Inits the camera button
      */
-    private fun setupCameraButton() {
-
-        val camera: View = findViewById(R.id.fab_camera)
-
-        // take picture
-        camera.setOnClickListener { view ->
-
-            if (!videoSaver.isRecording) {
-                photoSaver.takePhoto(arFragment.arSceneView)
-            } else {
-                toggleRecording()
-
-            }
-        }
-
-        // take video
-
-        // Initialize the VideoRecorder.
-        videoSaver = VideoRecorder(this)
-        val orientation = resources.configuration.orientation
-        videoSaver.setVideoQuality(CamcorderProfile.QUALITY_2160P, orientation)
-        videoSaver.setSceneView(arFragment.arSceneView)
-
-        camera.setOnLongClickListener() { view ->
-            toggleRecording()
-            true
-
-        }
-
-    }
+//    private fun setupCameraButton() {
+//
+//        val camera: View = findViewById(R.id.fab_camera)
+//
+//        // take picture
+//        camera.setOnClickListener { view ->
+//
+//            if (!videoSaver.isRecording) {
+//                photoSaver.takePhoto(arFragment.arSceneView)
+//            } else {
+//                toggleRecording()
+//
+//            }
+//        }
+//
+//        // take video
+//
+//        // Initialize the VideoRecorder.
+//        videoSaver = VideoRecorder(this)
+//        val orientation = resources.configuration.orientation
+//        videoSaver.setVideoQuality(CamcorderProfile.QUALITY_2160P, orientation)
+//        videoSaver.setSceneView(arFragment.arSceneView)
+//
+//        camera.setOnLongClickListener() { view ->
+//            toggleRecording()
+//            true
+//
+//        }
+//
+//    }
 
     /*
    * Used as a handler for onClick, so the signature must match onClickListener.
@@ -379,7 +379,7 @@ class OpenCameraActivity : AppCompatActivity() {
         val measurement: FloatingActionButton = findViewById(R.id.fab_measurement)
         measurement.setOnClickListener { view ->
             vibrate()
-            var infoFab = findViewById<InfoFAB>(R.id.fab_info)
+//            var infoFab = findViewById<InfoFAB>(R.id.fab_info)
 
 
             // todo
@@ -418,7 +418,7 @@ class OpenCameraActivity : AppCompatActivity() {
                 findViewById<IndicatorStayLayout>(R.id.indicator_container).visibility =
                     View.GONE
 
-                changeInfoStageToGreen()
+//                changeInfoStageToGreen()
             }
 
 
@@ -586,7 +586,7 @@ class OpenCameraActivity : AppCompatActivity() {
                 clear.visibility = View.VISIBLE
 
                 //
-                changeInfoStageToGreen()
+//                changeInfoStageToGreen()
             }
 
         }
@@ -658,43 +658,43 @@ class OpenCameraActivity : AppCompatActivity() {
     /***
      * Toggles recording mode
      */
-    private fun toggleRecording() {
-        val recordButton: FloatingActionButton =
-            findViewById(R.id.fab_camera) as FloatingActionButton
-
-        if (!hasWritePermission()) {
-
-            Toast.makeText(
-                this,
-                "Video recording requires the WRITE_EXTERNAL_STORAGE permission",
-                Toast.LENGTH_LONG
-            )
-                .show()
-            launchPermissionSettings()
-            return
-        }
-        val recording: Boolean = videoSaver.onToggleRecord()
-        if (recording) {
-
-            recordButton.setImageResource(R.drawable.ic_videocam)
-        } else {
-            recordButton.setImageResource(R.drawable.ic_camera)
-            vibrate()
-
-            val videoPath: String = videoSaver.getVideoPath().getAbsolutePath()
-            Toast.makeText(this, "Video saved: $videoPath", Toast.LENGTH_SHORT).show()
-
-
-            // Send  notification of updated content.
-
-
-            val values = ContentValues()
-            values.put(MediaStore.Video.Media.TITLE, "Sceneform Video")
-            values.put(MediaStore.Video.Media.MIME_TYPE, "video/mp4")
-            values.put(MediaStore.Video.Media.DATA, videoPath)
-            contentResolver.insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, values)
-        }
-    }
+//    private fun toggleRecording() {
+//        val recordButton: FloatingActionButton =
+//            findViewById(R.id.fab_camera) as FloatingActionButton
+//
+//        if (!hasWritePermission()) {
+//
+//            Toast.makeText(
+//                this,
+//                "Video recording requires the WRITE_EXTERNAL_STORAGE permission",
+//                Toast.LENGTH_LONG
+//            )
+//                .show()
+//            launchPermissionSettings()
+//            return
+//        }
+//        val recording: Boolean = videoSaver.onToggleRecord()
+//        if (recording) {
+//
+//            recordButton.setImageResource(R.drawable.ic_videocam)
+//        } else {
+//            recordButton.setImageResource(R.drawable.ic_camera)
+//            vibrate()
+//
+//            val videoPath: String = videoSaver.getVideoPath().getAbsolutePath()
+//            Toast.makeText(this, "Video saved: $videoPath", Toast.LENGTH_SHORT).show()
+//
+//
+//            // Send  notification of updated content.
+//
+//
+//            val values = ContentValues()
+//            values.put(MediaStore.Video.Media.TITLE, "Sceneform Video")
+//            values.put(MediaStore.Video.Media.MIME_TYPE, "video/mp4")
+//            values.put(MediaStore.Video.Media.DATA, videoPath)
+//            contentResolver.insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, values)
+//        }
+//    }
 
     /***
      * Displays message to user
@@ -741,156 +741,156 @@ class OpenCameraActivity : AppCompatActivity() {
      * Info button is found in 3 stages(red,yellow,green)
      * Changes mode to red stage
      */
-    @SuppressLint("ResourceAsColor")
-    fun changeInfoStageToRed() {
-        var infoFab = findViewById<InfoFAB>(R.id.fab_info)
-
-
-        infoFab.setStage(InfoStage.RED)
-        infoFab.setRippleColor(R.color.info_ripple_red)
-        infoFab.setBackgroundColor(R.color.info_background_red)
-        infoFab.setBackgroundTintList(getResources().getColorStateList(R.color.info_background_red));
-
-        infoFab.setImageResource(R.drawable.ic_info_first_stage)
-
-
-    }
+//    @SuppressLint("ResourceAsColor")
+//    fun changeInfoStageToRed() {
+////        var infoFab = findViewById<InfoFAB>(R.id.fab_info)
+//
+//
+//        infoFab.setStage(InfoStage.RED)
+//        infoFab.setRippleColor(R.color.info_ripple_red)
+//        infoFab.setBackgroundColor(R.color.info_background_red)
+//        infoFab.setBackgroundTintList(getResources().getColorStateList(R.color.info_background_red));
+//
+//        infoFab.setImageResource(R.drawable.ic_info_first_stage)
+//
+//
+//    }
 
     /**
      * Displays message in red stage
      */
-    private fun messageInfoButtonRedStage() {
-        val handler = Handler()
-
-        var infoFab = findViewById<InfoFAB>(R.id.fab_info)
-        val MESSAGE_1 = "1. " + resources.getString(R.string.red_advise_1)
-        val MESSAGE_2 = "2. " + resources.getString(R.string.red_advise_2)
-        val MESSAGE_3 = "3. " + resources.getString(R.string.red_advise_3)
-        val MESSAGE_4 = "4. " + resources.getString(R.string.red_advise_4)
-        val MESSAGE_5 = "5. " + resources.getString(R.string.red_advise_5)
-        infoFab.isEnabled = false
-
-        infoMessage(MESSAGE_1, Toast.LENGTH_SHORT)
-
-        handler.postDelayed({
-            // xxx
-        }, 2000)
-
-
-
-        handler.postDelayed({
-            infoMessage(MESSAGE_2, Toast.LENGTH_SHORT)
-        }, 2000)
-
-        handler.postDelayed({
-            infoMessage(MESSAGE_3, Toast.LENGTH_SHORT)
-        }, 4000)
-
-        handler.postDelayed({
-            infoMessage(MESSAGE_4, Toast.LENGTH_SHORT)
-        }, 6000)
-
-        handler.postDelayed({
-            infoMessage(MESSAGE_5, Toast.LENGTH_SHORT)
-            infoFab.isEnabled = true
-
-        }, 8000)
-
-
-    }
+//    private fun messageInfoButtonRedStage() {
+//        val handler = Handler()
+//
+//        var infoFab = findViewById<InfoFAB>(R.id.fab_info)
+//        val MESSAGE_1 = "1. " + resources.getString(R.string.red_advise_1)
+//        val MESSAGE_2 = "2. " + resources.getString(R.string.red_advise_2)
+//        val MESSAGE_3 = "3. " + resources.getString(R.string.red_advise_3)
+//        val MESSAGE_4 = "4. " + resources.getString(R.string.red_advise_4)
+//        val MESSAGE_5 = "5. " + resources.getString(R.string.red_advise_5)
+//        infoFab.isEnabled = false
+//
+//        infoMessage(MESSAGE_1, Toast.LENGTH_SHORT)
+//
+//        handler.postDelayed({
+//            // xxx
+//        }, 2000)
+//
+//
+//
+//        handler.postDelayed({
+//            infoMessage(MESSAGE_2, Toast.LENGTH_SHORT)
+//        }, 2000)
+//
+//        handler.postDelayed({
+//            infoMessage(MESSAGE_3, Toast.LENGTH_SHORT)
+//        }, 4000)
+//
+//        handler.postDelayed({
+//            infoMessage(MESSAGE_4, Toast.LENGTH_SHORT)
+//        }, 6000)
+//
+//        handler.postDelayed({
+//            infoMessage(MESSAGE_5, Toast.LENGTH_SHORT)
+//            infoFab.isEnabled = true
+//
+//        }, 8000)
+//
+//
+//    }
 
     /**
      * Info button is found in 3 stages(red,yellow,green)
      * Changes mode to yellow stage
      */
-    @SuppressLint("ResourceAsColor")
-    fun changeInfoStageToYellow() {
-        var infoFab = findViewById<InfoFAB>(R.id.fab_info)
-
-
-        infoFab.setStage(InfoStage.YELLOW)
-        infoFab.setRippleColor(R.color.info_ripple_yellow)
-        infoFab.setBackgroundColor(R.color.info_background_yellow)
-        infoFab.setBackgroundTintList(getResources().getColorStateList(R.color.info_background_yellow));
-        infoFab.setImageResource(R.drawable.ic_info_second_stage)
-
-
-    }
+//    @SuppressLint("ResourceAsColor")
+//    fun changeInfoStageToYellow() {
+//        var infoFab = findViewById<InfoFAB>(R.id.fab_info)
+//
+//
+//        infoFab.setStage(InfoStage.YELLOW)
+//        infoFab.setRippleColor(R.color.info_ripple_yellow)
+//        infoFab.setBackgroundColor(R.color.info_background_yellow)
+//        infoFab.setBackgroundTintList(getResources().getColorStateList(R.color.info_background_yellow));
+//        infoFab.setImageResource(R.drawable.ic_info_second_stage)
+//
+//
+//    }
 
     /**
      * Displays message in yellow stage
      */
-    private fun messageInfoButtonYellowStage() {
-        val handler = Handler()
-
-        val MESSAGE_1 = "1. " + resources.getString(R.string.yellow_advise_1)
-        val MESSAGE_2 = "2. " + resources.getString(R.string.yellow_advise_2)
-        val MESSAGE_3 = "3. " + resources.getString(R.string.yellow_advise_3)
-        val MESSAGE_4 = "4. " + resources.getString(R.string.yellow_advise_4)
-        val MESSAGE_5 = "5. " + resources.getString(R.string.yellow_advise_5)
-
-        var infoFab = findViewById<InfoFAB>(R.id.fab_info)
-        infoFab.isEnabled = false
-
-        infoMessage(MESSAGE_1, Toast.LENGTH_SHORT)
-
-        handler.postDelayed({
-            infoMessage(MESSAGE_2, Toast.LENGTH_SHORT)
-        }, 2000)
-
-        handler.postDelayed({
-            infoMessage(MESSAGE_3, Toast.LENGTH_SHORT)
-        }, 4000)
-
-        handler.postDelayed({
-            infoMessage(MESSAGE_4, Toast.LENGTH_SHORT)
-            infoFab.isEnabled = true
-
-        }, 6000)
-
-        handler.postDelayed({
-            infoMessage(MESSAGE_5, Toast.LENGTH_SHORT)
-            infoFab.isEnabled = true
-
-        }, 8000)
-
-
-    }
+//    private fun messageInfoButtonYellowStage() {
+//        val handler = Handler()
+//
+//        val MESSAGE_1 = "1. " + resources.getString(R.string.yellow_advise_1)
+//        val MESSAGE_2 = "2. " + resources.getString(R.string.yellow_advise_2)
+//        val MESSAGE_3 = "3. " + resources.getString(R.string.yellow_advise_3)
+//        val MESSAGE_4 = "4. " + resources.getString(R.string.yellow_advise_4)
+//        val MESSAGE_5 = "5. " + resources.getString(R.string.yellow_advise_5)
+//
+//        var infoFab = findViewById<InfoFAB>(R.id.fab_info)
+//        infoFab.isEnabled = false
+//
+//        infoMessage(MESSAGE_1, Toast.LENGTH_SHORT)
+//
+//        handler.postDelayed({
+//            infoMessage(MESSAGE_2, Toast.LENGTH_SHORT)
+//        }, 2000)
+//
+//        handler.postDelayed({
+//            infoMessage(MESSAGE_3, Toast.LENGTH_SHORT)
+//        }, 4000)
+//
+//        handler.postDelayed({
+//            infoMessage(MESSAGE_4, Toast.LENGTH_SHORT)
+//            infoFab.isEnabled = true
+//
+//        }, 6000)
+//
+//        handler.postDelayed({
+//            infoMessage(MESSAGE_5, Toast.LENGTH_SHORT)
+//            infoFab.isEnabled = true
+//
+//        }, 8000)
+//
+//
+//    }
 
     /**
      * Info button is found in 3 stages(red,yellow,green)
      * Changes mode to green stage
      */
-    @SuppressLint("ResourceAsColor")
-    private fun changeInfoStageToGreen() {
-        var infoFab = findViewById<InfoFAB>(R.id.fab_info)
-
-
-        infoFab.setStage(InfoStage.GREEN)
-        infoFab.setRippleColor(R.color.info_ripple_green)
-        infoFab.setBackgroundColor(R.color.info_background_green)
-        infoFab.setBackgroundTintList(getResources().getColorStateList(R.color.info_background_green));
-
-        infoFab.setImageResource(R.drawable.ic_info_third_stage)
-
-
-    }
+//    @SuppressLint("ResourceAsColor")
+//    private fun changeInfoStageToGreen() {
+//        var infoFab = findViewById<InfoFAB>(R.id.fab_info)
+//
+//
+//        infoFab.setStage(InfoStage.GREEN)
+//        infoFab.setRippleColor(R.color.info_ripple_green)
+//        infoFab.setBackgroundColor(R.color.info_background_green)
+//        infoFab.setBackgroundTintList(getResources().getColorStateList(R.color.info_background_green));
+//
+//        infoFab.setImageResource(R.drawable.ic_info_third_stage)
+//
+//
+//    }
 
     /**
      * Displays message in green stage
      */
-    private fun messageInfoButtonGreenStage() {
-        val MESSAGE_1 = resources.getString(R.string.green_advise_1)
-        val MESSAGE_2 = resources.getString(R.string.green_advise_2)
-
-        if (furnitureRenderable == null) {
-            infoMessage(MESSAGE_1, Toast.LENGTH_SHORT)
-
-        } else {
-            infoMessage(MESSAGE_2, Toast.LENGTH_SHORT)
-
-        }
-    }
+//    private fun messageInfoButtonGreenStage() {
+//        val MESSAGE_1 = resources.getString(R.string.green_advise_1)
+//        val MESSAGE_2 = resources.getString(R.string.green_advise_2)
+//
+//        if (furnitureRenderable == null) {
+//            infoMessage(MESSAGE_1, Toast.LENGTH_SHORT)
+//
+//        } else {
+//            infoMessage(MESSAGE_2, Toast.LENGTH_SHORT)
+//
+//        }
+//    }
 
     /**
      * Displays   message when no shape was measured
@@ -960,7 +960,7 @@ class OpenCameraActivity : AppCompatActivity() {
         seekBar.setProgress(0f)
 
         //
-        changeInfoStageToYellow()
+//        changeInfoStageToYellow()
 
         //
         seekBar.visibility = View.GONE

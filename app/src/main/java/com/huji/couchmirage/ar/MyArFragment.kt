@@ -55,12 +55,12 @@ class MyArFragment : ArFragment(), Scene.OnUpdateListener {
         }
 
         //
-        for (plane in frame.getUpdatedTrackables(Plane::class.java)) {
-            if (plane.trackingState == TrackingState.TRACKING) {
-                hideLoadingMessage()
-                cameraActivity!!.changeInfoStageToYellow()
-            }
-        }
+//        for (plane in frame.getUpdatedTrackables(Plane::class.java)) {
+//            if (plane.trackingState == TrackingState.TRACKING) {
+//                hideLoadingMessage()
+//                cameraActivity!!.changeInfoStageToYellow()
+//            }
+//        }
 
     }
 
@@ -96,10 +96,10 @@ class MyArFragment : ArFragment(), Scene.OnUpdateListener {
         }
 
         //   whenever the arSceneView has started show loading message
-        if (arSceneView!!.session != null) {
-            showLoadingMessage()
-            cameraActivity!!.changeInfoStageToRed()
-        }
+//        if (arSceneView!!.session != null) {
+//            showLoadingMessage()
+//            cameraActivity!!.changeInfoStageToRed()
+//        }
     }
 
 

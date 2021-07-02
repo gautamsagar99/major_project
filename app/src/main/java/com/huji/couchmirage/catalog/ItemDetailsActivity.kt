@@ -68,7 +68,7 @@ class ItemDetailsActivity : AppCompatActivity() {
         setUpItemColor()
         loadSelectedItemImages()
         setupSlider()
-        setUpURLSourceButton()
+//        setUpURLSourceButton()
         setupDisplay3DModelButton()
     }
 
@@ -273,7 +273,7 @@ class ItemDetailsActivity : AppCompatActivity() {
             }
             isLoading = true
 
-            goto_store_button.visibility = View.GONE
+            goto_store_button.visibility = View.INVISIBLE
             loading.visibility = View.VISIBLE
         } catch (e: IOException) {
             e.printStackTrace()
