@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.huji.couchmirage"
+    package="com.huji.ARView"
     >
 
     <!-- ARCODE REQUIRED-->
@@ -32,7 +32,7 @@
 
         <!-- catalog related activities -->
         <activity
-            android:name=".catalog.CatalogFrontActivity"
+            android:name="com.huji.ARView.catalog.CatalogFrontActivity"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -42,15 +42,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".catalog.ItemDetailsActivity"
+            android:name="com.huji.ARView.catalog.ItemDetailsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".catalog.DepartmentActivity"
+            android:name="com.huji.ARView.catalog.DepartmentActivity"
             android:screenOrientation="portrait" />
 
         <!-- Greetings related activities -->
         <activity
-            android:name=".greetings.GreetingActivity"
+            android:name="com.huji.ARView.greetings.GreetingActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true"
             android:screenOrientation="locked"
@@ -62,11 +62,11 @@
         <!-- Help page  related activities -->
 
         <activity
-            android:name=".Help.HelpActivity"
+            android:name="com.huji.ARView.Help.HelpActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".OpenCameraActivity"
+            android:name="com.huji.ARView.OpenCameraActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
